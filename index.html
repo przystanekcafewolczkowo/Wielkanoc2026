@@ -1,89 +1,199 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>Kawiarnia Przystanek</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Przystanek ☕</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f8f6f3;
-      color: #2c2c2c;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    .container {
-      max-width: 420px;
-      width: 90%;
-      text-align: center;
-    }
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
 
-    h1 {
-      font-weight: 600;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
+body {
+  font-family:'Poppins',sans-serif;
+  background:#0b0b0b;
+  color:white;
+  overflow-x:hidden;
+}
 
-    .subtitle {
-      font-size: 14px;
-      color: #777;
-      margin-bottom: 30px;
-    }
+/* HERO */
+.hero {
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9)),
+             url('menu.jpg') center/cover;
+}
 
-    .pdf-preview {
-      width: 100%;
-      height: 300px;
-      border-radius: 12px;
-      border: none;
-      margin-bottom: 20px;
-      background: #fff;
-    }
+.hero h1 {
+  font-size:52px;
+  letter-spacing:3px;
+  animation:fadeUp 1.2s ease forwards;
+}
 
-    .button {
-      display: inline-block;
-      padding: 14px 24px;
-      background: #2c2c2c;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 10px;
-      font-size: 16px;
-      transition: 0.2s;
-    }
+.hero p {
+  margin-top:10px;
+  color:#ccc;
+  animation:fadeUp 1.8s ease forwards;
+}
 
-    .button:hover {
-      background: #000;
-    }
+/* BUTTON */
+.btn {
+  margin-top:25px;
+  padding:15px 35px;
+  background:linear-gradient(135deg,#c8a97e,#e6c79c);
+  color:black;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
 
-    .note {
-      margin-top: 15px;
-      font-size: 12px;
-      color: #999;
-    }
-  </style>
+.btn:hover {
+  transform:scale(1.08);
+}
+
+/* SECTION */
+.section {
+  padding:80px 20px;
+  text-align:center;
+}
+
+/* GLASS EFFECT */
+.glass {
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  border-radius:15px;
+  padding:20px;
+  margin:15px;
+  transition:0.3s;
+}
+
+.glass:hover {
+  transform:translateY(-8px);
+}
+
+/* GRID */
+.menu-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  max-width:1000px;
+  margin:auto;
+}
+
+/* GALLERY */
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+  max-width:900px;
+  margin:auto;
+}
+
+.gallery img {
+  width:100%;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.gallery img:hover {
+  transform:scale(1.05);
+}
+
+/* ANIMATIONS */
+.hidden {
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.show {
+  opacity:1;
+  transform:translateY(0);
+  transition:all 1s ease;
+}
+
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(30px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+footer {
+  padding:40px;
+  text-align:center;
+  color:#777;
+}
+</style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>Przystanek</h1>
-    <div class="subtitle">Kawiarnia</div>
+<section class="hero">
+  <h1>PRZYSTANEK ☕</h1>
+  <p>Zatrzymaj się na chwilę</p>
+  <a href="#menu" class="btn">Menu</a>
+</section>
 
-    <!-- PODGLĄD PDF -->
-    <iframe class="pdf-preview" src="menu.pdf"></iframe>
+<section id="menu" class="section">
+  <h2 class="hidden">Nasze Menu</h2>
 
-    <!-- POBIERANIE -->
-    <a class="button" href="menu.pdf" download>
-      Pobierz ofertę (PDF)
-    </a>
+  <div class="menu-grid">
 
-    <div class="note">
-      Na iPhone przytrzymaj i wybierz „Pobierz”
+    <div class="glass hidden">
+      <h3>☕ Espresso</h3>
+      <p>8 zł</p>
     </div>
+
+    <div class="glass hidden">
+      <h3>☕ Latte</h3>
+      <p>14 zł</p>
+    </div>
+
+    <div class="glass hidden">
+      <h3>🥐 Croissant</h3>
+      <p>10 zł</p>
+    </div>
+
+    <div class="glass hidden">
+      <h3>🍰 Ciasto dnia</h3>
+      <p>15 zł</p>
+    </div>
+
   </div>
+
+  <br><br>
+
+  <a href="menu.pdf" class="btn">📄 Pobierz pełne menu</a>
+</section>
+
+<section class="section">
+  <h2 class="hidden">Galeria</h2>
+
+  <div class="gallery">
+    <img src="menu.jpg" class="hidden">
+    <img src="menu.jpg" class="hidden">
+    <img src="menu.jpg" class="hidden">
+  </div>
+</section>
+
+<footer>
+  © 2026 Przystanek ☕
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
